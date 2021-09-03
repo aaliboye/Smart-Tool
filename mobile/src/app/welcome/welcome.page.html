@@ -1,0 +1,119 @@
+<ion-content class="background" fullscreen>
+  <div class="ion-text-center">
+    <img src="../../assets/imgs/logo557-97.png" class="drapeau">
+  </div>
+  <ion-grid class="py-1">
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-start margin" (click)="autorisation()">
+          <i class="far fa-user-circle" style="color: white !important; font-size: 40px; margin-left: 5px;"></i>
+          <i class="fas fa-bars menu-bar" style="color: white !important; font-size: 20px !important;"></i>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="py-1">
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="extrem-card-background">
+          <ion-card-header>
+            <ion-avatar item-start class="avatar-background">
+              <img src="../../assets/imgs/meteo.png" class="avatar-img">
+            </ion-avatar>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size=4 size-sm=4>
+                  <h6>Hier</h6>
+                </ion-col>
+                <ion-col size=4 size-sm=4 class="ion-text-center">Aujourd'hui</ion-col>
+                <ion-col size=4 size-sm=4>Demain</ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size=12>
+        <ion-card class="card-background">
+          <ion-card-header></ion-card-header>
+          <ion-card-content>
+            <ion-slides [options]="slidesConfig">
+              <ion-slide>
+                <h1>Evènement 1</h1>
+              </ion-slide>
+              <ion-slide>
+                <h1>Evènement 2</h1>
+              </ion-slide>
+              <ion-slide>
+                <h1>Evènement 3</h1>
+              </ion-slide>
+            </ion-slides>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+
+      <ion-col size="4">
+        <ion-card class="card-background" [routerLink]="'/jardin-list'">
+          <ion-card-header>
+            <ion-avatar item-start class="avatar-background">
+              <img src="../../assets/imgs/jardin.png" class="avatar-img">
+            </ion-avatar>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Mes Jardins</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size=4>
+        <ion-card class="card-background" [routerLink]="'/info'">
+          <ion-card-header>
+            <ion-avatar item-start class="avatar-background">
+              <img src="../../assets/imgs/geste-barriere.svg" class="avatar-img">
+            </ion-avatar>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Informtion Locale Statique</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size=4>
+        <ion-card [routerLink]="'/map'" class="card-background">
+          <ion-card-header>
+            <ion-avatar item-start class="avatar-background">
+              <img src="../../assets/imgs/001_map.png" class="avatar-img">
+            </ion-avatar>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Exemple de Cartographie</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-slides [options]="sliderConfig">
+          <ion-slide *ngFor="let jardin of jardins">
+              <ion-card class="extrem-card-background">
+                <ion-card-header>
+                  <ion-card-title>
+                    {{jardin.title}}
+                  </ion-card-title>
+                  <ion-avatar item-start class="avatar-background">
+                    <img [src]="jardin.imgUrl" class="avatar-img">
+                  </ion-avatar>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>{{jardin.content}}</p>
+                </ion-card-content>
+              </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

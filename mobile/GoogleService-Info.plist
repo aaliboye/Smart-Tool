@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>655907879563-jfh8d9prrolkpllce6b586dktv597dl4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.655907879563-jfh8d9prrolkpllce6b586dktv597dl4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCvFqt0Ty8uxQkFajNP-2t-Y0ivhJDIen8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>655907879563</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>sn.daancovid19</string>
+	<key>PROJECT_ID</key>
+	<string>daan-covid</string>
+	<key>STORAGE_BUCKET</key>
+	<string>daan-covid.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:655907879563:ios:7273aca2bc40eeb03f728e</string>
+	<key>DATABASE_URL</key>
+	<string>https://daan-covid.firebaseio.com</string>
+</dict>
+</plist>

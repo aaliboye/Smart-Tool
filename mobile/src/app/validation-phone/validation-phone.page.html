@@ -1,0 +1,93 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen scroll-y="true" forceOverscroll="false">
+  <div class="animated fadeIn">
+    <ion-slides #slideValidationPhone>
+      <ion-slide class="swiper-no-swiping">
+        <div class="slide">
+          <img src="../../assets/imgs/icone-screen-phone.svg" alt="">
+          <h1>Merci de saisir ton numéro de téléphone afin d’activer l’application </h1>
+
+          <ion-grid>
+            <form [formGroup]="validationPhone" class="boxPhone">
+              <div class="phoneInput">
+                <ion-label>N° téléphone mobile</ion-label>
+                <div class="tel-component">
+                  <input type="tel" ng2TelInput formControlName="phone" name="phone" value="777777"
+                    (focus)="this.resetErrorInputPhone()" [ng2TelInputOptions]="{initialCountry: 'sn'}"
+                    (hasError)="this.inputPhoneHasError($event)" (countryChange)="this.onCountryChange($event)" 
+                    (keyup.enter)="this.slideToCodeVerification()"
+                    />
+                </div>
+            </div>
+            </form>
+            <ion-button expand="block" [disabled]="!validationPhone.valid || !this.inputPhoneConfig.hasError"
+              (click)="this.slideToCodeVerification()">
+              Valider
+            </ion-button>
+          </ion-grid>
+        </div>
+      </ion-slide>
+      <ion-slide class="swiper-no-swiping">
+        <div class="slide">
+          <img src="../../assets/imgs/icone-screen-code.svg" alt="">
+          <h1>Entres le code reçu par SMS </h1>
+          <div class="boxCode">
+            <p>Code SMS</p>
+            <ion-input>
+              <ng-otp-input #ngOtpInput (onInputChange)="this.setOtpValue($event)" [config]="configOtpInput"
+              (keyup.enter)="this.verifyOtp()">
+              </ng-otp-input>
+            </ion-input>
+          </div>
+
+          <p *ngIf="!isCodeValid" class="codeError">Code invalide !</p>
+          <ion-button expand="block" [disabled]="!isCodeReady"  (click)="this.verifyOtp()">
+            S'identifier
+          </ion-button>
+          <br>
+          <small *ngIf="!this.displayResentCode" class="primary-color" style="text-align: center; width: 100%;">
+            Tu n'as pas encore reçu de code ? <br>- Réessayer l'envoi dans {{ this.formatCountDown() }}
+          </small>
+          <a (click)="this.slideToCodeVerification(true)" *ngIf="this.displayResentCode" w-100>
+              <small>Renvoyer SMS</small></a>
+          <br>
+          <a (click)="goToSlideBack()" *ngIf="this.displayResentCode" w-100>
+            <small>({{this.validationPhone.value.dialCode}} {{this.validationPhone.value.phone}}) changer de numéro.</small>
+          </a>
+        </div>
+      </ion-slide>
+      <ion-slide class="swiper-no-swiping">
+        <div class="slide" style="text-align: left;">
+          <div class="entete">
+            <h2>Actives ta géolicalisation</h2>
+            <span>
+              Sois rassuré nous respectons ta vie privée.
+            </span>
+          </div>
+          <!-- br-->
+          <div class="itemBox">
+            <img src="../../assets/imgs/icone-localisation.svg" alt="">
+            <span>En partageant ta position tu prends moins de risque.</span>
+          </div>
+          <div class="itemBox">
+            <img src="../../assets/imgs/icon-lock.svg" alt="">
+            <span>Toutes tes informations personnelles seront confidentielles</span>
+          </div>
+          <div class="itemBox last">
+            <img src="../../assets/imgs/cgu.svg" alt="">
+            <span>La protection des données personnelles est notre devoir primordial.</span>
+          </div>
+          <ion-button expand="block" (click)="gotoGeolocalisation(); gotoWelcome()">
+            Activer la géolocalisation
+          </ion-button>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

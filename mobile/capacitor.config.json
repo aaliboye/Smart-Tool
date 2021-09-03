@@ -1,0 +1,8 @@
+{
+  "appId": "sn.covid19.daan",
+  "appName": "Daan Covid19",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

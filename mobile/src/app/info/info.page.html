@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar class="tol1">
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6><div class="d-flex justify-content-start" class="boldb16">Informations Dynamiques</div></ion-col>
+        <ion-col size=6>
+          <div>
+
+            <ion-buttons slot="start" class="close-outline">
+              <ion-back-button defaultHref="/welcome" text="" icon="close-outline"></ion-back-button>
+            </ion-buttons>
+
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+  <ion-toolbar class="tol1">
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="segment1">
+        <ion-label>Premier Segment</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment2">
+        <ion-label>Deuxième Segment</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment3">
+        <ion-label>Exemple</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding card-content">
+  <ion-grid>
+    <ion-row>
+      <ion-col><ion-text style="color: #585757;"><h6 class="ion-text-start">Une Info :</h6></ion-text></ion-col>
+      
+    </ion-row>
+  </ion-grid>
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'segment1'">
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <ion-col size=6 size-sm=5><h6>Colonne 1</h6></ion-col>
+            <ion-col size=2 class="ion-text-center"> Colonne 2</ion-col>
+            <ion-col size=4 size-sm=5>Colonne 3</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <ion-col size=6 size-sm=5><h6>Colonne 1</h6></ion-col>
+            <ion-col size=2 class="ion-text-center"> Colonne 2</ion-col>
+            <ion-col size=4 size-sm=5>Colonne 3</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+      
+    </div>
+    <div *ngSwitchCase="'segment2'">
+      
+    
+    </div>
+
+    <div *ngSwitchCase="'segment3'">
+      <ion-card class="ion-padding card1">
+        <ion-grid>
+          <ion-row>
+            <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/corona_corona.svg"></ion-img></ion-thumbnail></ion-col>
+            <ion-col>
+              <h3 class="ion-text-end">{{dailyReportsMondial.cases | number }}  <span>Cas confirmés</span></h3>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="ion-padding card1">
+        <ion-grid>
+          <ion-row>
+            <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/gueri.png"></ion-img></ion-thumbnail></ion-col>
+            <ion-col>
+              <h3 class="ion-text-end">{{dailyReportsMondial.recovered | number }}  <span>Cas guéris</span></h3>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="ion-padding card1">
+        <ion-grid>
+          <ion-row>
+            <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/corona_corona.svg"></ion-img></ion-thumbnail></ion-col>
+            <ion-col>
+              <h3 class="ion-text-end">{{dailyReportsMondial.active | number }} <span>Cas actifs</span></h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="ion-padding card1">
+        <ion-grid>
+          <ion-row>
+            <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/aqwxsz.png"></ion-img></ion-thumbnail></ion-col>
+            <ion-col>
+              <h3 class="ion-text-end">{{dailyReportsMondial.deaths | number }} <span>Cas décédés</span></h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="ion-padding card1">
+        <ion-grid>
+          <ion-row>
+            <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/corona_corona.svg"></ion-img></ion-thumbnail></ion-col>
+            <ion-col>
+              <h3 class="ion-text-end">{{dailyReportsMondial.todayCases | number }} <span>Nouveaux cas</span></h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="ion-padding card1">
+        <ion-grid>
+          <ion-row>
+            <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/aqwxsz.png"></ion-img></ion-thumbnail></ion-col>
+            <ion-col>
+              <h3 class="ion-text-end">{{dailyReportsMondial.todayDeaths | number }} <span>Nouveaux décès</span></h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-card-content>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+
+</ion-content>

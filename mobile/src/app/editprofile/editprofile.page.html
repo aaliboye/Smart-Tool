@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar class="tol1">
+    <ion-grid>
+      <ion-row class="d-flex align-items-center">
+        <ion-col size="1">
+          <!-- <i class="fas fa-angle-left" style="color: #002a63 !important;font-size: 40px !important;" (click)="redirect()"></i> -->
+          <ion-icon  name="chevron-back-outline" (click)="redirect()" style="color:#2d9cdb; font-size: 20px;margin-top: 5px;"></ion-icon>
+        </ion-col>
+
+        <ion-col size="11">
+          <ion-text style="color: #002a63;font-size: 16px; font-weight:700;">Modifier mon profil</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="divavatar">
+    <ion-avatar>
+      <img [src]="image">
+    </ion-avatar>
+    <p (click)="addPhoto('library')">Ajouter Photo</p>
+<!--      <p (click)="addPhoto('library')">Selectionnez une photo</p>-->
+<!--      <p (click)="addPhoto('camera')" >Prendre une photo</p>-->
+
+  </div>
+  <div class="divprofil">
+    <ion-label class="labeledit" >Nom</ion-label>
+    <ion-item class="itemeedit">
+      <ion-input placeholder="Diop"></ion-input>
+    </ion-item>
+    <ion-label  class="labeledit">Prénom</ion-label>
+    <ion-item class="itemeedit">
+      <ion-input  placeholder="Mamadou Ibrahim"></ion-input>
+    </ion-item >
+    <ion-label  class="labeledit">N° téléphone mobile </ion-label>
+
+    <ion-item class="itemeedit">
+      <ion-input type="number" placeholder="+221 77 720 00 000"></ion-input>
+    </ion-item>
+    <ion-button expand="block" class="btns btnconfirm">Confirmer</ion-button>
+    <ion-button expand="block" class="btns btnannuler">Annuler</ion-button>
+
+
+  </div>
+</ion-content>

@@ -1,0 +1,99 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div class="titlePage">
+      Auto-signalement en ligne
+      <ion-text>
+        Renseignez vos informations d'état civil
+      </ion-text>
+      
+      <ion-buttons slot="start" class="close-outline">
+        <ion-back-button defaultHref="/welcome" text="" icon="close-outline"></ion-back-button>
+      </ion-buttons>
+
+   </div><div class="lineProgress1"></div><div class="lineSeparat"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen >
+
+  <div>
+
+    <form [formGroup]="form" (ngSubmit)="sendInfosEtatCivil()">
+
+      <div>
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+          <ion-item class="item-background-color" lines="none">
+            <ion-label>Sexe <ion-text color="danger">* : </ion-text></ion-label>
+            <ion-select class="form-control" style="position: absolute; left: 40%;" interface="popover" formControlName="gender" id="gender" >
+              <ion-select-option value="1">Masculin</ion-select-option>
+              <ion-select-option value="2">Féminin</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item class="item-background-color" lines="none">
+            <ion-label>Prénom <ion-text color="danger">*</ion-text> : </ion-label>
+            <ion-input class="form-control" type="text" formControlName="firstname" id="firstname" ></ion-input>
+          </ion-item>
+
+          <ion-item class="item-background-color" lines="none">
+            <ion-label>Nom <ion-text color="danger">*</ion-text> : </ion-label>
+            <ion-input class="form-control" type="text" formControlName="lastname" id="lastname" ></ion-input>
+          </ion-item>
+
+          <ion-item class="item-background-color" lines="none">
+            <ion-label>Age <ion-text color="danger">*</ion-text> : </ion-label>
+            <ion-input class="form-control" type="number" formControlName="age" id="age" [class.is-invalid] = "form.get('age').invalid && form.get('age').touched" ></ion-input>
+          </ion-item>
+
+          <ion-item class="item-background-color" lines="none">
+            <ion-label>Région <ion-text color="danger">*</ion-text> : </ion-label>
+            <ion-select class="form-control" style="position: absolute; left: 40%;" (ionChange)="selectDepartement($event)" interface="popover" formControlName="region" id="region" >
+              <ion-select-option value=DAKAR>DAKAR</ion-select-option>
+              <ion-select-option value=DIOURBEL>DIOURBEL</ion-select-option>
+              <ion-select-option value=FATICK>FATICK</ion-select-option>
+              <ion-select-option value=KAFFRINE>KAFFRINE</ion-select-option>
+              <ion-select-option value=KAOLACK>KAOLACK</ion-select-option>
+              <ion-select-option value=KEDOUGOU>KEDOUGOU</ion-select-option>
+              <ion-select-option value=KOLDA>KOLDA</ion-select-option>
+              <ion-select-option value=LOUGA>LOUGA</ion-select-option>
+              <ion-select-option value=MATAM>MATAM</ion-select-option>
+              <ion-select-option value=SAINT-LOUIS>SAINT-LOUIS</ion-select-option>
+              <ion-select-option value=SEDHIOU>SEDHIOU</ion-select-option>
+              <ion-select-option value=TAMBACOUNDA>TAMBACOUNDA</ion-select-option>
+              <ion-select-option value=THIES>THIES</ion-select-option>
+              <ion-select-option value=ZIGUINCHOR>ZIGUINCHOR</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item class="item-background-color" lines="none">
+            <ion-label>Département <ion-text color="danger">*</ion-text> : </ion-label>
+            <ion-select style="position: absolute; left: 40%;" class="form-control" interface="popover" formControlName="department" id="department" >
+            </ion-select>
+          </ion-item>
+
+          <ion-item class="item-background-color" lines="none">
+            <ion-label>Adresse <ion-text color="danger">*</ion-text> : </ion-label>
+            <ion-input [class.is-invalid] = "form.get('adresse').invalid && form.get('adresse').touched" 
+                  type="text" class="form-control" formControlName="adresse"></ion-input>
+          </ion-item>
+
+          <ion-item class="item-background-color" lines="none">
+            <ion-label>E-mail<ion-text color="danger"></ion-text> : </ion-label>
+            <ion-input [class.is-invalid] = "form.get('email').invalid && form.get('email').touched"
+                  type="email" class="form-control" formControlName="email"></ion-input>
+          </ion-item>
+          <div *ngIf="form.get('email').invalid && form.get('email').touched" style="color: red; text-align: center; width: 100%; font-size: 12px;"> E-mail incorrect ! Saisissez un e-mail correct ou effacez pour continuer </div>
+
+        </ion-list>
+
+      </div>
+
+      <section>
+        <ion-button expand="block" type="submit" [disabled]="!form.valid" (keyup.enter)="sendInfosEtatCivil()">Symptomes</ion-button>
+      </section>
+    </form>
+
+  </div>
+
+</ion-content>

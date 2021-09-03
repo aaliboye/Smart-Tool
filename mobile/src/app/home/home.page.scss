@@ -1,0 +1,107 @@
+ion-slides {
+  height: 100%;
+
+  ion-slide {
+      padding: 0 15px;
+    p {
+      font-size: 12px;
+      line-height: 21px;
+      letter-spacing: -0.28px;
+    }
+    .desc {
+      margin-top: 10%;
+      font-family: Lato;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: center;
+      color: #011939;
+    }
+    .nextButtonSlide {
+      bottom: 0px;
+      height: 30px;
+      right: 0;
+      width: 30%;
+      position: absolute;
+    }
+        &:last-child {
+            .nextButtonSlide {
+                width: 45%;
+            }
+        }
+        .slide > .img {
+            width: 230px;
+            height: 230px;
+            max-width: 100%;
+            margin: 12% auto;
+            background-repeat: no-repeat, no-repeat;
+            background-position: center top;
+                background-size: 70%, 100%;
+            &.img-location {
+                background-image: url(../../assets/imgs/localisation.png),
+                url(../../assets/imgs/font-bleu.svg);
+
+
+                }
+            &.img-secure {
+                background-image: url(../../assets/imgs/donnees-securisees.png),
+                url(../../assets/imgs/font-bleu.svg);
+
+            }
+        }
+   }
+
+  .titleSlide {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    color: #002A63;
+    padding: 0 0 20px 0;
+    background: url('../../assets/imgs/background-title.svg');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center top 12px;
+  }
+}
+.swiper-slide {
+  display: block;
+}
+.swiper-slide .slide img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  margin: 10% 0 0;
+  pointer-events: none;
+}
+ion-button {
+  margin-top: 20%;
+  text-transform: initial;
+  --border-radius: 14.5px !important;
+}
+
+@media  (max-height: 480px) {
+    ion-slides {
+        ion-slide {
+           .slide img {
+                width: 60%;
+           }
+           &:first-child {
+                .slide img { width: 50%}
+           }
+           .nextButtonSlide {
+                width: 35%;
+            }
+           &:last-child {
+                .nextButtonSlide {
+                    width: 52%;
+                }
+            }
+
+        }
+
+    }
+}
+

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "655907879563",
+    "firebase_url": "https://daan-covid.firebaseio.com",
+    "project_id": "daan-covid",
+    "storage_bucket": "daan-covid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655907879563:android:9b034301987fafc43f728e",
+        "android_client_info": {
+          "package_name": "sn.daancovid19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655907879563-ibloe7qm3cd1hp6orneg3spokgp6ssgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEgha1dXll0syXp0BHTyK4_vNWkQ6ACJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655907879563-ibloe7qm3cd1hp6orneg3spokgp6ssgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

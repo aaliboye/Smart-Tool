@@ -1,0 +1,94 @@
+
+img {
+    height: 60px;
+}
+ion-header {
+    div{
+        background-color: #e2f0f9;
+        padding: 17px 20px;
+
+    }
+    ion-title {
+        font-size: 17px;
+        line-height: 55px;
+        font-weight: 700;
+        color: #000;
+        padding: 0;
+        text-align: left;
+    }
+
+    .close-outline{
+        border-radius: 50%;
+        background-color: #d3e7f4;
+        float: right;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+
+        ion-back-button{
+            color: black;
+            position: absolute;
+            float: right;
+            right: -4px;
+            &.ios {
+                right: 9px;
+            }
+
+        }
+    }
+}
+ion-list {
+    ion-item {
+        margin: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 25px rgba(0,0,0,.15);
+        border-radius: 10px;
+        padding-top: 10px;
+        p {
+            color: #011939;
+            line-height: 21px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        .round-blue {
+            display: inline-block;
+            background-color: #d0f4ff;
+            position: relative;
+            padding: 0 10px;
+            &:before,
+            &:after {
+                content:'';
+                background-color: #d0f4ff;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: inline-block;
+                position: absolute;
+                top: -18px;
+                z-index: -1;
+
+            }
+            &:before {
+                left: -45px;
+
+            }
+            &:after {
+                right: -51px;
+
+            }
+        }
+
+    }
+}
+ion-toolbar.ios{
+    --background: #e2f0f9;
+    > div {
+        padding: 45px;
+        ion-title {
+            padding-left: 20px;
+        }
+    }
+}

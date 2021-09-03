@@ -1,0 +1,119 @@
+<ion-header class="ion-no-border">
+  <div class="titlePage">
+    Auto-signalement en ligne
+
+    <div class="buttonBack"><ion-button size="small" color="success" (click)="gotoSymptomes()"><ion-icon name="checkmark-outline"></ion-icon>Les symptomes</ion-button> </div>
+    <ion-text class="habAntMargin">
+      Habitudes et Antécédents
+    </ion-text>
+
+  </div><div class="lineProgress3"></div><div class="lineSeparat"></div>
+</ion-header>
+
+<ion-content>
+
+  <div class="zoneInfosPage">
+  
+      <div class="zoneInfosFixed">
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 1)" id="choixAnt1"></ion-checkbox></td>
+              <td class="col3"><ion-label>Fumeur</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 2)" id="choixAnt2"></ion-checkbox></td>
+              <td class="col3"><ion-label>Consommation d'alcool</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 3)" id="choixAnt3"></ion-checkbox></td>
+              <td class="col3"><ion-label>Diabétique</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 4)" id="choixAnt4"></ion-checkbox></td>
+              <td class="col3"><ion-label>Hypertension artérielle</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 5)" id="choixAnt5"></ion-checkbox></td>
+              <td class="col3"><ion-label>Asthmatique</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 6)" id="choixAnt6"></ion-checkbox></td>
+              <td class="col3"><ion-label>Maladie cardiaque</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 7)" id="choixAnt7"></ion-checkbox></td>
+              <td class="col3"><ion-label>Obésité</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 8)" id="choixAnt8"></ion-checkbox></td>
+              <td class="col3"><ion-label>Contact avec un malade</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+  
+        <ion-item class="item-background-color" lines="none">
+          <table style="width: 100%;">
+            <tr style="width: 100%;">
+              <td class="col1"></td>
+              <td class="col2"><ion-checkbox color="success" (ionChange)="checkAntecedents($event, 9)" id="choixAnt9"></ion-checkbox></td>
+              <td class="col3"><ion-label>Retour de voyage</ion-label></td>
+            </tr>
+          </table>
+        </ion-item>
+
+       
+  
+      </div>
+  
+      <section>
+        <ion-button expand="block" (click)="sendInformations()" (keyup.enter)="sendInformations()" >Confirmer</ion-button>
+      </section>
+  
+  </div>
+
+</ion-content>

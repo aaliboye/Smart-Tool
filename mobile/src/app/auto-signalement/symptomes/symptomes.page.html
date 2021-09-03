@@ -1,0 +1,158 @@
+<ion-header class="ion-no-border">
+  <div class="titlePage">
+    Auto-signalement en ligne
+
+    <div class="buttonBack"><ion-button size="small" color="success" (click)="gotoEtatCivil()" ><ion-icon name="checkmark-outline"></ion-icon>Etat civil</ion-button></div>
+    <ion-text>
+      Quels sont les symptomes que vous avez ?
+    </ion-text>
+
+  </div><div class="lineProgress2"></div><div class="lineSeparat"></div>
+</ion-header>
+
+
+<ion-content>
+  
+  <div class="zoneInfosPage">
+
+    <div class="zoneInfosFixed">
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 1)" id="choix1"></ion-checkbox></td>
+            <td class="col3"><ion-label>Fièvre</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 2)" id="choix2"></ion-checkbox></td>
+            <td class="col3"><ion-label>Fatigue</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 3)" id="choix3"></ion-checkbox></td>
+            <td class="col3"><ion-label>Tousser et/ou Toux sèche</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 4)" id="choix4"></ion-checkbox></td>
+            <td class="col3"><ion-label>Difficultés à respirer</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 5)" id="choix5"></ion-checkbox></td>
+            <td class="col3"><ion-label>Douleurs à la respiration</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 6)" id="choix6"></ion-checkbox></td>
+            <td class="col3"><ion-label>Douleurs aux muscles</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 7)" id="choix7"></ion-checkbox></td>
+            <td class="col3"><ion-label>Douleurs aux articulations</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 8)" id="choix8"></ion-checkbox></td>
+            <td class="col3"><ion-label>Mal de gorge</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 9)" id="choix9"></ion-checkbox></td>
+            <td class="col3"><ion-label>Nez bouché</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 10)" id="choix10"></ion-checkbox></td>
+            <td class="col3"><ion-label>Nez qui coule</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 11)" id="choix11"></ion-checkbox></td>
+            <td class="col3"><ion-label>Vertige</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 12)" id="choix12"></ion-checkbox></td>
+            <td class="col3"><ion-label>Perte d'appétit</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+      <ion-item class="item-background-color" lines="none">
+        <table style="width: 100%;">
+          <tr style="width: 100%;">
+            <td class="col1"></td>
+            <td class="col2"><ion-checkbox color="success" (ionChange)="checkSymptomes($event, 13)" id="choix13"></ion-checkbox></td>
+            <td class="col3"><ion-label>Diarrhée</ion-label></td>
+          </tr>
+        </table>
+      </ion-item>
+
+    </div>
+
+    <section>
+      <ion-button expand="block" (click)="gotoAntecedent()" (keyup.enter)="gotoAntecedent()">Habitudes et Antécédents</ion-button>
+    </section>
+
+  </div>
+
+</ion-content>

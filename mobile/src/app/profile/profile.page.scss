@@ -1,0 +1,43 @@
+span{
+  font-size: 16px;
+  color: #002a63;
+  margin: 0 0 0 3%;
+}
+.divprofil{
+  margin: 12% 0 0 9%;
+  line-height: 2;
+}
+.divavatar{
+  font-size: 14px;
+  color: #002a63;
+  text-align: center;
+  line-height: 2;
+  margin-top: 10%;
+  ion-avatar{
+      margin: auto;
+  }
+}
+.hr1{
+  border-color: #d8d8d8 ;
+  border-width: 1px ;
+  margin-top: 20%;
+}
+.divparam{
+  p{
+    font-size: 16px;
+    color: #000000;
+    margin: 0 0 0 5%;
+    line-height: 2.5;
+  }
+}
+.closebtn{
+  padding: 2%;
+  border-radius: 10% 60% 20% 80%;
+  background: #edf5ff;
+  position: absolute;
+  right: -15px;
+  top: -10px;
+}
+ion-back-button {
+  color: #000000;
+}

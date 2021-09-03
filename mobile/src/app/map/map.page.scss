@@ -1,0 +1,95 @@
+#mapId {
+  width: 100%;
+  height: 100%;
+
+}
+
+ion-header {
+    div{
+        background-color: #e2f0f9;
+        padding: 17px 20px;
+
+    }
+    ion-title {
+        font-size: 17px;
+        line-height: 55px;
+        font-weight: 700;
+        color: #000;
+        padding: 0;
+        text-align: left;
+    }
+
+    .close-outline{
+      border-radius: 50%;
+      background-color: #d3e7f4;
+      float: right;
+      position: absolute;
+      top: 50%;
+      margin-top: -20px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      &.ios {
+          top: 50%;
+          margin-top: -20px;
+      }
+
+      ion-back-button{
+          color: black;
+          position: absolute;
+          float: right;
+          right: -4px;
+          &.ios {
+              right: 9px;
+          }
+
+      }
+  }
+}
+:host ::ng-deep .legend {
+  line-height: 18px;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  border-radius: 5px;
+  h4{
+    margin: 0;
+    font-weight: 600;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    color: #2f2e2e;
+    font-size: 14px;
+  }
+}
+
+:host ::ng-deep .legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+:host ::ng-deep .info1 {
+
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+:host ::ng-deep .info1 h4 {
+  text-align: center;
+  margin: 0;
+  color: #777;
+}
+ion-toolbar.ios{
+    --background: #e2f0f9;
+    > div {
+        padding: 45px;
+        ion-title {
+            padding-left: 20px;
+            text-align: left;
+        }
+    }
+}
+

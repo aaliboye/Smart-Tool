@@ -1,0 +1,229 @@
+ion-content{
+    height: 100%;
+    border: solid 0.5px #cccccc;
+}
+
+.fixed{
+    position: fixed;
+    top: 0;
+}
+
+.titlePage{
+    height: 185px;
+    background-color: #e2f0f9;
+    padding-top: 35px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 21px;
+
+
+    ion-text{
+        bottom: 50px;
+        left: 30px;
+        right: 50px;
+        position: absolute;
+        color: #0c7dc6;
+        line-height: 23px;
+        font-family: Lato;
+        font-weight: bold;
+        font-size: 21px;
+
+    }
+    .habAntMargin{
+        top: 130px;
+    }
+    .buttonBack{
+        margin: 20px 0 20px;
+
+        ion-button{
+           text-transform: none;
+           padding-left: 5px;
+           --border-radius: 15px;
+        }
+        ion-icon{
+            margin-left: -5px;
+        }
+    }
+}
+
+.lineProgress1{
+    width: 33.5%;
+    height: 1.5px;
+    background-color: #0c7dc6;
+}
+.lineProgress2{
+    width: 66%;
+    height: 1.5px;
+    background-color: #0c7dc6;
+}
+.lineProgress3{
+    width: 100%;
+    height: 1.5px;
+    background-color: #0c7dc6;
+}
+
+.lineSeparat{
+    width: 100%;
+    background-color:fff;
+    height: 31px;
+}
+
+.close-outline{
+    border-radius: 50%;
+    background-color: #d3e7f4;
+    float: right;
+    position: absolute;
+    top: 27px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+
+    ion-back-button{
+        color: black;
+        position: absolute;
+        float: right;
+        right: -4px;
+        &.ios {
+            right: 9px;
+        }
+    }
+}
+
+.item-background-color{
+    --ion-item-background: #f6fcff;
+    font-family: Lato;
+    font-size: 17px;
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+    ion-label{
+        font-weight: 400;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    &.ios {
+        table td {
+            padding: 9px 0;
+        }
+    }
+}
+
+form {
+    section{
+    margin: 30px 15px;
+
+    ion-button{
+        height: 50px;
+        text-transform: none;
+        font-size: 17px;
+        font-weight: 700;
+        &.ios {
+            width: 100%;
+            --padding-left: 0 !important;
+            --padding-right: 0 !important;
+        }
+    }
+    }
+    ion-input,
+    ion-select,
+    .form-control{
+        height: 30px;
+        border: 0;
+        background-color: transparent;
+        box-shadow: none;
+        font-family: Lato;
+        font-size: 17px;
+        font-weight: 700;
+        outline: none;
+
+    }
+    ion-select {
+        min-width: 170px;
+    }
+}
+
+ion-content.ios form section {
+    margin: 30px 0;
+}
+
+.col1{
+    width: 5%;
+}
+
+.col2{
+    width: 12%;
+    padding-right: 8px;
+
+}
+
+.col3{
+    width: 85%;
+}
+
+
+.zoneInfosFixed ion-label{
+    font-family: Lato;
+    font-size: 17px;
+
+}
+
+#iconChargement{
+    text-align: center;
+    display: none;
+    width: 100%;
+    height: 20px;
+    img{
+        width: 55px;
+        height: 65px;
+    }
+}
+
+.zoneInfosPage {
+    section{
+        margin: 15px;
+        margin-top: 40px;
+        ion-button{
+            height: 50px;
+            margin-bottom: 30px;
+            text-transform: none;
+            font-size: 17px;
+            font-weight: 700;
+        }
+    }
+    ion-text {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        &.entete p {
+            font-size: 17px;
+            color: #000;
+            font-weight: 900;
+            line-height: 21px;
+            margin: 45px 0 60px;
+            text-align: center;
+        }
+        &.content p {
+            background-color: #e2f0f9;
+            margin: 0 15px;
+            padding: 30px 15px 15px;
+            color: #034f80;
+            font-weight: 700;
+            font-size: 20px;
+            text-align: center;
+            line-height: 34px;
+            position: relative;
+            z-index: 0;
+            border-radius: 5px;
+        }
+        ion-icon {
+            position: absolute;
+            color: #3bc63d;
+            font-size: 48px;
+            top: -24px;
+            left: 50%;
+            margin-left: -24px;
+            z-index: 1;
+        }
+    }
+
+}

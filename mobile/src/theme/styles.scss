@@ -1,0 +1,119 @@
+* {
+  font-family: var(--ion-font-family);
+}
+.page {
+  height: 100%;
+}
+.swiper-pagination-bullet {
+    background: var(--ion-color-secondary);
+    width: 12px;
+    height: 12px;
+}
+.swiper-pagination-bullet-active {
+  background: var(--ion-color-primary);
+}
+.swiper-container-horizontal>.swiper-pagination-bullets {
+  width: 60px !important;
+}
+ion-button {
+ // height: 50px;
+  --border-radius: 10px;
+  // height: 100%;
+}
+
+// global css properties for margin and padding
+@for $i from 0 through 12 {
+  $directions: left, right, top, bottom;
+  @each $direction in $directions {
+    *[margin-#{$direction}-#{$i}],
+    .margin-#{$direction}-#{$i} {
+      margin-#{$direction}: 1% * $i !important;
+    }
+
+    *[padding-#{$direction}-#{$i}],
+    .padding-#{$direction}-#{$i} {
+      padding-#{$direction}: 1% * $i !important;
+    }
+  }
+}
+
+// global css properties for margin and padding (x10)
+@for $i from 1 through 10 {
+  $directions: left, right, top, bottom;
+  @each $direction in $directions {
+    *[margin-#{$direction}-#{10 * $i}],
+    .margin-#{$direction}-#{10 * $i} {
+      margin-#{$direction}: 10% * $i !important;
+    }
+
+    *[padding-#{$direction}-#{$i * 10}],
+    .padding-#{$direction}-#{10 * $i} {
+      padding-#{$direction}: 10% * $i !important;
+    }
+  }
+}
+
+$directions: left, right;
+@each $direction in $directions {
+  *[float-#{$direction}] {
+    float: $direction !important;
+  }
+}
+
+a {
+  text-decoration: underline !important;
+}
+ng-otp-input {
+    width: 100%;
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        .otp-input {
+            border: 1px solid #d0dce5 !important;
+            border-radius: 4px !important;
+            &:focus {
+                border: 2px solid #2f80ed !important;
+                outline: 0;
+            }
+        }
+    }
+}
+ion-back-button {
+    color: #2f80ed;
+}
+//Enlever le lien  sur la map
+.leaflet-control-attribution a{
+  display: none;
+}
+
+//connexion input
+.tel-component .iti {
+        width: 100%;
+}
+// page autosignalement
+app-auto-signalement {
+
+    .buttonBack .ion-color-success {
+        position: absolute;
+    right: 14px;
+    top: 50%;
+    margin-top: -40px;
+    --ion-color-base: #3bc63d !important;
+    text-transform: none;
+    --border-radius: 15px !important;
+    --box-shadow: none !important;
+    }
+
+}
+ion-checkbox .checkbox-icon {
+    --background: #fff !important;
+    --border-color: #2ea4df !important;
+}
+
+//page Info
+
+
+//0px 60px 200px -40px rgba(0,0,0,0.3);
+.close-outline ion-back-button.ios {
+    right: 9px;
+}

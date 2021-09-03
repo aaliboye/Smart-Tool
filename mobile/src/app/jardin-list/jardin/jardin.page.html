@@ -1,0 +1,111 @@
+<ion-header translucent>
+  <ion-toolbar style="--ion-background-color: #e2f0f9 !important;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center"><h1>Mon Jardin</h1></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  
+  <ion-grid class="py-1">
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="extrem-card-background" >
+          <ion-card-header>
+            <ion-avatar item-start class="avatar-background">
+              <img src="../../assets/imgs/meteo.png" class="avatar-img">
+            </ion-avatar>
+          </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size=6 size-sm=6>Ajouter une zone</ion-col>
+                  <ion-col size=6 size-sm=6 class="ion-text-center">Action</ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div >
+    <ion-card class="ion-padding card1">
+      <ion-grid>
+        <ion-row>
+          <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/corona_corona.svg"></ion-img></ion-thumbnail></ion-col>
+          <ion-col>
+            <h3 class="ion-text-end">{{dailyReportsMondial.cases | number }}  <span>Cas confirmés</span></h3>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="ion-padding card1">
+      <ion-grid>
+        <ion-row>
+          <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/gueri.png"></ion-img></ion-thumbnail></ion-col>
+          <ion-col>
+            <h3 class="ion-text-end">{{dailyReportsMondial.recovered | number }}  <span>Cas guéris</span></h3>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="ion-padding card1">
+      <ion-grid>
+        <ion-row>
+          <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/corona_corona.svg"></ion-img></ion-thumbnail></ion-col>
+          <ion-col>
+            <h3 class="ion-text-end">{{dailyReportsMondial.active | number }} <span>Cas actifs</span></h3>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="ion-padding card1">
+      <ion-grid>
+        <ion-row>
+          <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/aqwxsz.png"></ion-img></ion-thumbnail></ion-col>
+          <ion-col>
+            <h3 class="ion-text-end">{{dailyReportsMondial.deaths | number }} <span>Cas décédés</span></h3>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="ion-padding card1">
+      <ion-grid>
+        <ion-row>
+          <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/corona_corona.svg"></ion-img></ion-thumbnail></ion-col>
+          <ion-col>
+            <h3 class="ion-text-end">{{dailyReportsMondial.todayCases | number }} <span>Nouveaux cas</span></h3>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="ion-padding card1">
+      <ion-grid>
+        <ion-row>
+          <ion-col><ion-thumbnail><ion-img src="../../assets/imgs/aqwxsz.png"></ion-img></ion-thumbnail></ion-col>
+          <ion-col>
+            <h3 class="ion-text-end">{{dailyReportsMondial.todayDeaths | number }} <span>Nouveaux décès</span></h3>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

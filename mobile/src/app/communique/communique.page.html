@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar class="tol1">
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6><div class="d-flex justify-content-start" class="boldb16">Communiqué du {{dailyReports.createdAt  | date:'dd/MM/yyyy'}}</div></ion-col>
+        <ion-col size=6>
+          <div>
+
+            <ion-buttons slot="start" class="close-outline">
+              <ion-back-button defaultHref="/welcome" text="" icon="close-outline"></ion-back-button>
+            </ion-buttons>
+
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6 size-sm=5><h6>Tests réalisés</h6></ion-col>
+        <ion-col size=4 size-sm=5><h3 class="ion-text-end">{{dailyReports.numberOfTest | number }}</h3></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6 size-sm=5><h6>Cas positifs</h6></ion-col>
+        <ion-col size=4 size-sm=5><h3 class="ion-text-end">{{dailyReports.numberOfPositiveCases | number }}</h3></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6 size-sm=5><h6>Cas contacts</h6></ion-col>
+        <ion-col size=4 size-sm=5><h3 class="ion-text-end">{{dailyReports.numberOfContactCases | number }}</h3></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6 size-sm=5><h6>Cas communautaires</h6></ion-col>
+        <ion-col size=4 size-sm=5><h3 class="ion-text-end">{{dailyReports.numberOfCommunityCases | number }}</h3></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6 size-sm=5><h6>Cas importés</h6></ion-col>
+        <ion-col size=4 size-sm=5><h3 class="ion-text-end">{{dailyReports.numberOfImportedCases | number }}</h3></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6 size-sm=5><h6>Ils sont  guéris</h6></ion-col>
+        <ion-col size=4 size-sm=5><h3 class="ion-text-end">{{dailyReports.numberOfRecoveredCases | number }}</h3></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=6 size-sm=5><h6>Personnes décédées</h6></ion-col>
+        <ion-col size=4 size-sm=5><h3 class="ion-text-end">{{dailyReports.numberOfDeadCases | number }}</h3></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

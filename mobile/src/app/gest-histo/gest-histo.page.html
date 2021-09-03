@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let data1 of data1Histo1">
+    <ion-card-header>
+      <ion-grid><ion-row>
+        <ion-col><ion-card-title>Longitude</ion-card-title></ion-col>
+        <ion-col><ion-card-title class="ion-text-end">Latitude</ion-card-title></ion-col>
+      </ion-row></ion-grid>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col><div class="ion-text-start">{{data1.position.lon}}</div></ion-col>
+          <ion-col><div class="ion-text-end">{{data1.position.lat}}</div></ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="ion-text-end">
+              <ion-button size="small" >voir sur la carte</ion-button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="ion-text-end">
+              <ion-button size="small"  color="danger" (click)="deletePosition(data1.id)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

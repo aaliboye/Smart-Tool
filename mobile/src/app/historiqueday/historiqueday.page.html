@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar class="tol1">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <i class="fas fa-angle-left" style="color: #002a63 !important;font-size: 40px !important;" (click)="redirect()"></i>
+        </ion-col>
+        <ion-col size="10">
+            <ion-text style="color: #002a63;font-size: 20px !important;"> Historique de mes déplacements</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col><ion-text style="color: #585757;"><h6 class="ion-text-start">Aujourd'hui :</h6></ion-text></ion-col>
+      <ion-col><ion-text  style="color: #2f80e2;"></ion-text></ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngFor="let zones of data1Histo1">
+      <ion-card>
+          <ion-card-header>
+              <ion-grid><ion-row>
+                  <ion-col><ion-card-title style="color: #002a63 !important;font-size: 16px !important;font-weight: bold !important;">{{zones.name}}</ion-card-title></ion-col>
+                  <ion-col><ion-card-title class="ion-text-end"><ion-text style="font-size: 14px !important;color: #9e9e9e !important;">{{dateToday | date: 'dd/MM/yyyy'}}</ion-text></ion-card-title></ion-col>
+              </ion-row></ion-grid>
+          </ion-card-header>
+
+          <ion-card-content>
+              <p>Niveau de risque</p>
+              <ion-progress-bar color="success" value="0.33"></ion-progress-bar>
+          </ion-card-content>
+      </ion-card>
+  </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col><ion-text style="color: #585757;"><h6 class="ion-text-start">Hier</h6></ion-text></ion-col>
+            <ion-col><ion-text  style="color: #2f80e2;"><h5 class="ion-text-end">{{yesterday | date: 'dd/MM/yyyy'}}</h5></ion-text></ion-col>
+        </ion-row>
+    </ion-grid>
+    <div *ngFor="let zones1 of data1Histo2">
+        <ion-card>
+            <ion-card-header>
+                <ion-grid><ion-row>
+                    <ion-col><ion-card-title style="color: #002a63 !important;font-size: 16px !important;font-weight: bold !important;">{{zones1.name}}</ion-card-title></ion-col>
+                    <ion-col><ion-card-title class="ion-text-end"><ion-text style="font-size: 10px !important;color: #9e9e9e !important;">{{yesterday | date:'short'}}</ion-text></ion-card-title></ion-col>
+                </ion-row></ion-grid>
+            </ion-card-header>
+
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <div class="ion-text-end">
+                                <ion-button size="small" (click)="showModal(zones1.source)">voir sur la carte</ion-button>
+                            </div>
+                        </ion-col>
+                        <!--                      <ion-col>-->
+                        <!--                          <div class="ion-text-end">-->
+                        <!--                              <ion-button size="small" (click)="showModal(zones.source)" color="danger">Supprimer</ion-button>-->
+                        <!--                          </div>-->
+                        <!--                      </ion-col>-->
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

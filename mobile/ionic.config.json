@@ -1,0 +1,8 @@
+{
+  "name": "daan-covid19-mobile",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

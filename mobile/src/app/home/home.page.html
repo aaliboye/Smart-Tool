@@ -1,0 +1,42 @@
+
+<ion-content fullscreen class="ion-padding" scroll-y="true" forceOverscroll="false">
+  <div class="animated fadeIn center-On-Screen page">
+    <ion-slides pager="true" #homeSlides>
+      <ion-slide>
+        <div class="slide">
+          <img margin-top-0 src="../../assets/icon/logo998-210.png" />
+          <h1 class="titleSlide">Message 1</h1>
+          <img src="../../assets/imgs/slide-1.svg" />
+          <h6 class="desc">
+            Description 1 </h6>
+        </div>
+        <ion-button class="nextButtonSlide" expand="block" (click)="goToNextSlide()">Suivant&nbsp;<ion-icon
+            name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide">
+          <h1 class="titleSlide">Message 2</h1>
+          <div class="img img-secure"></div>
+          <!-- <h6 class="desc">Fais un pré-diagnostic en ligne et échange avec des professionnels de la santé en
+            toute confidentialité</h6> -->
+            <h6 class="desc">Description 2</h6>
+        </div>
+        <ion-button class="nextButtonSlide" expand="block" (click)="goToNextSlide()">Suivant&nbsp;<ion-icon
+            name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide">
+          <h1 class="titleSlide">Message 3</h1>
+          <div class="img img-location"></div>
+          <!-- <img src="../../assets/imgs/localisation.png" alt="Localisation" /> -->
+          <h6 class="desc">Description 3</h6>
+        </div>
+        <ion-button class="nextButtonSlide" expand="block" (click)="redirect()">Inscription&nbsp;
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

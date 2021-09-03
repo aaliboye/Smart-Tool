@@ -1,0 +1,32 @@
+<div class="d-flex align-items-center">
+  <ion-buttons slot="end" class="close-outline closebtn">
+    <ion-back-button  slot="end"  defaultHref="/welcome" text="" icon="close-outline"></ion-back-button>
+  </ion-buttons>
+</div>
+
+<ion-content>
+  <div class="divavatar">
+  <ion-avatar>
+    <img [src]="image">
+  </ion-avatar>
+<!--    <ion-progress-bar></ion-progress-bar>-->
+<p class="mb-0">Prenom</p>
+<p>Nom</p>
+  </div>
+  <div [routerLink]="'/editprofile'" class="divprofil"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+    <path stroke="#4B98FE" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.167 2.5c.219-.219.478-.393.764-.511.286-.118.593-.18.902-.18.31 0 .616.062.902.18.286.118.546.292.765.51.219.22.392.48.51.766.12.286.18.592.18.902 0 .31-.06.616-.18.902-.118.286-.291.545-.51.764L6.25 17.083l-4.583 1.25 1.25-4.583L14.167 2.5z"/>
+  </svg>
+  <span>Modifier mon profil</span>
+  </div>
+  <div class="divprofil" [routerLink]="'/historique'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+      <path stroke="#4B98FE" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 18.333c4.602 0 8.333-3.73 8.333-8.333S14.603 1.667 10 1.667c-4.602 0-8.333 3.73-8.333 8.333 0 4.602 3.73 8.333 8.333 8.333z"/>
+    </svg>
+      <span>Historique de mes déplacements</span>
+  </div>
+    <hr class="hr1">
+  <div class="divparam">
+        <p>Paramètres</p>
+        <p>Condition d’utilisation</p>
+  </div>
+</ion-content>
