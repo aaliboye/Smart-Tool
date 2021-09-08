@@ -21,8 +21,6 @@ void setup(){
 void loop()
 {
   float sensorValue1 = analogRead(capt1);
-  float sensorValue2 = analogRead(capt2);
-  float sensorValue3 = analogRead(capt3);
 
   senData();
 
