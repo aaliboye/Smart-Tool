@@ -40,10 +40,7 @@ void receiveData()
 {
   data = Serial.read();
   // selon la valeur de data on active la sortie vanne1
-  if (data.equals("soif")){
-    digitalWrite(vanne1, HIGH);
-  }
-  if (data.equals("intermediare")){
+  if (data.equals("arroser")){
     digitalWrite(vanne1, HIGH);
   }
   if (data.equals("Humide")){
