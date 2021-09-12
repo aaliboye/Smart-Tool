@@ -33,28 +33,30 @@ if __name__ == '__main__':
 
     while True:
         if ser.in_waiting > 0:
-            sensorValue = ser.readline().decode('utf-8')
+            sensorValue = ser.readline().decode('utf-8').rstrip()
              # on envoie la valeur vers le broker
              sensor_data['humidity'] = float(sensorValue)
 
-             client.publish('test_channel', json.dumps(sensorValue), 1)
+             client.publish('test_channel', json.dumps(sensor_data), 1)
 
-             #le broker l'envoie vers le cloud
+             #le broker doit l'envoie vers le cloud
 
-             next_reading += INTERVAL
+            next_reading += INTERVAL
             sleep_time = next_reading-time.time()
             if sleep_time > 0:
                 time.sleep(sleep_time)
+
+
+            # if user demande a aroose:
              
-            if float(sensorValue < 300):
-               
-                # if user demande a arooser: ser.write(b"arroser")
+                if float(sensorValue < 300):
+                    ser.write(b"arroser\n")
     
-            else if float(sensorValue > 600):
-                ser.write(b"humide")
+                else if float(sensorValue > 600):
+                    ser.write(b"humide\n")
             
-            else:
-                # if user demande a arooser: ser.write(b"arroser")
+                else:
+                    ser.write(b"arroser\n")
 
             client.loop_stop()
             client.disconnect()

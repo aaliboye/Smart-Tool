@@ -7,6 +7,7 @@
 #define vanne1 11
 
 String data;
+float sensorValue1;
 
 
 void setup(){
@@ -20,7 +21,7 @@ void setup(){
 
 void loop()
 {
-  float sensorValue1 = analogRead(capt1);
+  sensorValue1 = analogRead(capt1);
 
   senData();
 
@@ -33,12 +34,12 @@ void loop()
 
 void senData()
 {
-  Serial.println(sensorValue1);
+  Serial.print(sensorValue1);
 }
 
 void receiveData()
 {
-  data = Serial.read();
+  data = Serial.readStringUntil('\n');
   // selon la valeur de data on active la sortie vanne1
   if (data.equals("arroser")){
     digitalWrite(vanne1, HIGH);
