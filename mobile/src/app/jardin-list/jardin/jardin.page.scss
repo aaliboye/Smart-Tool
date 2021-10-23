@@ -54,7 +54,7 @@
 
 .extrem-card-background {
     background-color:#f0f8fc;
-    height: 190px;
+    //height: 190px;
     border-radius: 10px;
     margin: 5px;
     margin-bottom: 0;
@@ -116,7 +116,6 @@ img.drapeau{
 .avatar-img {
     width: auto;
     margin: auto;
-    display: block;
     height: 40px;
 }
 
@@ -175,4 +174,9 @@ ion-list {
 }
 .card-background {
     background-color: #f0f8fc;
+}
+
+.avatar-img {
+    @extend .avatar-img;
+    display: inline-block;
 }

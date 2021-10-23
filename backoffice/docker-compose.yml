@@ -1,0 +1,13 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=genealogy
+      - POSTGRES_PASSWORD=genealogysn
+      - POSTGRES_MULTIPLE_DATABASES=genealogysn_test
+    volumes:
+      - ./pg-init-scripts:/docker-entrypoint-initdb.d
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

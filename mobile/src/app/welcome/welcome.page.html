@@ -37,22 +37,22 @@
 
       <ion-col size="12">
         <ion-slides [options]="sliderConfig">
-          <ion-slide >
-              <ion-card class="evt-card-background">
-                <ion-card-header>
-                  <ion-card-title>
-                    Evènement 1
-                  </ion-card-title>
-                  <ion-avatar item-start class="avatar-background">
-                    <img src="../../assets/imgs/arrosage.png" class="avatar-img">
-                  </ion-avatar>
-                </ion-card-header>
-                <ion-card-content>
-                  <p>Evènement 1</p>
-                </ion-card-content>
-              </ion-card>
+          <ion-slide class="slide-card-background">
+            <ion-card class="evt-card-background">
+              <ion-card-header>
+                <ion-card-title>
+                  Evènement 1
+                </ion-card-title>
+                <ion-avatar item-start class="avatar-background">
+                  <img src="../../assets/imgs/arrosage.png" class="avatar-img">
+                </ion-avatar>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Evènement 1</p>
+              </ion-card-content>
+            </ion-card>
           </ion-slide>
-          <ion-slide >
+          <ion-slide class="slide-card-background">
             <ion-card class="evt-card-background">
               <ion-card-header>
                 <ion-card-title>
@@ -66,22 +66,22 @@
                 <p>Evènement 2</p>
               </ion-card-content>
             </ion-card>
-        </ion-slide>
-        <ion-slide >
-          <ion-card class="evt-card-background">
-            <ion-card-header>
-              <ion-card-title>
-                Evènement 3
-              </ion-card-title>
-              <ion-avatar item-start class="avatar-background">
-                <img src="../../assets/imgs/arrosage.png" class="avatar-img">
-              </ion-avatar>
-            </ion-card-header>
-            <ion-card-content>
-              <p>Evènement 3</p>
-            </ion-card-content>
-          </ion-card>
-      </ion-slide>
+          </ion-slide>
+          <ion-slide class="slide-card-background">
+            <ion-card class="evt-card-background">
+              <ion-card-header>
+                <ion-card-title>
+                  Evènement 3
+                </ion-card-title>
+                <ion-avatar item-start class="avatar-background">
+                  <img src="../../assets/imgs/arrosage.png" class="avatar-img">
+                </ion-avatar>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Evènement 3</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
         </ion-slides>
       </ion-col>
 
@@ -127,19 +127,19 @@
       <ion-col size="12">
         <ion-slides [options]="sliderConfig">
           <ion-slide *ngFor="let jardin of jardins">
-              <ion-card class="extrem-card-background">
-                <ion-card-header>
-                  <ion-card-title>
-                    {{jardin.title}}
-                  </ion-card-title>
-                  <ion-avatar item-start class="avatar-background">
-                    <img [src]="jardin.imgUrl" class="avatar-img">
-                  </ion-avatar>
-                </ion-card-header>
-                <ion-card-content>
-                  <p>{{jardin.content}}</p>
-                </ion-card-content>
-              </ion-card>
+            <ion-card class="extrem-card-background">
+              <ion-card-header>
+                <ion-card-title>
+                  {{jardin.title}}
+                </ion-card-title>
+                <ion-avatar item-start class="avatar-background">
+                  <img [src]="jardin.imgUrl" class="avatar-img">
+                </ion-avatar>
+              </ion-card-header>
+              <ion-card-content>
+                <p>{{jardin.content}}</p>
+              </ion-card-content>
+            </ion-card>
           </ion-slide>
         </ion-slides>
       </ion-col>

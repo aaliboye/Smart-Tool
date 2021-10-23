@@ -1,0 +1,30 @@
+{
+  "local": {
+    "username": "genealogysn",
+    "password": "genealogysn",
+    "database": "genealogysn",
+    "host": "172.31.240.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "genealogysn",
+    "password": "genealogysn",
+    "database": "genealogysn_test",
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "development": {
+    "username": "genealogysn",
+    "password": "genealogysn",
+    "database": "genealogysn",
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "logging": false
+  }
+}

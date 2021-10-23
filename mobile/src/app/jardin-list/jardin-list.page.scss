@@ -1,3 +1,178 @@
+.margin {
+    margin: 7% 0;
+    outline: 0;
+}
+.menu-bar {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    overflow: hidden;
+    background: #2a54ce;
+    line-height: 20px;
+    margin-left: -10px;
+}
+.notif {
+    ion-badge {
+        position: absolute;
+        top: -0.2rem;
+        right: -0.2rem;
+        //opacity: 0.9;
+
+        & ~ ion-icon {
+            margin-right: 1.2rem;
+        }
+    }
+}
+.txt{
+    margin: auto;
+}
+.iconSize {
+    font-size: 35px;
+    color: white;
+}
+.iconSize1 {
+    font-size: 50px;
+    color: white;
+}
+
+.title {
+    font-size: 6vh;
+    font-weight: bold;
+    color: #fff;
+    margin: 8vmax 0 4vmax 16px;
+}
+ .title::after {
+     content: '';
+     width: 60px;
+     height: 7px;
+     border-radius: 5px;
+     background-color: #fff;
+     display: block;
+ }
+
+.extrem-card-background {
+    background-color:#f0f8fc;
+    height: 190px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-bottom: 0;
+
+    h2 {
+        color: #000;
+        font-weight: 600;
+    }
+}
+.card-background {
+    background-color:#f0f8fc;
+    height: 100px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-bottom: 0;
+
+    h2 {
+        color: #000;
+        font-weight: 600;
+    }
+}
+img.drapeau{
+    width: 140px !important;
+    position: relative;
+    top: 15px;
+}
+
+.numTitle {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding-left: 12px;
+}
+
+.number {
+    display:flex;
+    align-items: center;
+    height: 45px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+    overflow: hidden;
+    margin-right: 8px;
+    ion-icon {
+    color: #fff;
+    background-color: #27ae60;
+    padding: 13px 10px;
+    font-size: 20px;
+    }
+    span {
+        font-size: 21px;
+        font-weight: 700;
+        color: #000;
+        width: 80%;
+        text-align: center;
+    }
+}
+
+.avatar-img {
+    width: auto;
+    margin: auto;
+    display: block;
+    height: 40px;
+}
+
+.avatar-background {
+    background-color: #cdeeff;
+    padding-top: 10px;
+}
+ion-slides {
+    height: 100%;
+  }
+ion-list {
+    ion-item {
+        margin: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 25px rgba(0,0,0,.15);
+        border-radius: 10px;
+        padding-top: 10px;
+        p {
+            color: #011939;
+            line-height: 21px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        .round-blue {
+            display: inline-block;
+            background-color: #d0f4ff;
+            position: relative;
+            padding: 0 10px;
+            &:before,
+            &:after {
+                content:'';
+                background-color: #d0f4ff;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: inline-block;
+                position: absolute;
+                top: -18px;
+                z-index: -1;
+
+            }
+            &:before {
+                left: -45px;
+
+            }
+            &:after {
+                right: -51px;
+
+            }
+        }
+        img {
+            height: 60px;
+        }
+
+    }
+}
 .card-background {
     background-color: #f0f8fc;
 }

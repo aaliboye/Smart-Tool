@@ -1,0 +1,138 @@
+{
+    "authors": "ouzdeville",
+    "Description": "Smart Garden",
+    "name": "smartgarden",
+    "SignIn": {
+        "user": {
+            "id": "integer",
+            "name": "string",
+            "firstname": "string",
+            "matricule": "string",
+            "phone": "string",
+            "email": "string",
+            "status": "boolean",
+            "garden": [
+                {
+                    "id": "integer",
+                    "name": "string",
+                    "description": "string",
+                    "user_id": "integer",
+                    "gps_shape": [
+                        {
+                            "latitude": "string",
+                            "longitude": "string"
+                        }
+                    ],
+                    "gps_point": {
+                        "latitude": "string",
+                        "longitude": "string"
+                    },
+                    "raspberry": [
+                        {
+                            "id": "integer",
+                            "ip_address": "string",
+                            "dns_address": "string",
+                            "sensor": [
+                                {
+                                    "id": "integer",
+                                    "type": "string",
+                                    "input_pins": [
+                                        {}
+                                    ],
+                                    "output_pins": [
+                                        {}
+                                    ]
+                                }
+                            ],
+                            "modules": [
+                                {
+                                    "id": "integer",
+                                    "type": ["arduino", "valve", "..."],
+                                    "address": {},
+                                    "devices": [
+                                        {
+                                            "id": "integer",
+                                            "type":["sensor", "output_valve", "..."],
+                                            "zone_id": "integer",
+                                            "input_pins": [
+                                                {}
+                                            ],
+                                            "output_pins": [
+                                                {}
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "zones":[
+                        {
+                            "gps_shape": [
+                                {
+                                    "latitude": "string",
+                                    "longitude": "string"
+                                }
+                            ],
+                            "gps_point": {
+                                "latitude": "string",
+                                "longitude": "string"
+                            },
+                            "devices": [
+                                {
+                                    "id": "integer",
+                                    "type":["sensor", "output_valve", "..."]
+                                }
+                            ]
+                        }
+                    ]
+
+                }
+            ]
+        },
+        "action": [
+            {
+                "name": "createAccount",
+                "where": "on Backend and Stored on DB",
+                "who": "any user",
+                "constraint": "",
+                "description": "create the account with MFA autehentification"
+            },
+            {
+                "name": "addgarden|modify|setVisibility",
+                "where": "on Backend",
+                "who": "any user",
+                "constraint": "",
+                "description": ""
+            },
+            {
+                "name": "addraspberry",
+                "where": "on Backend",
+                "who": "any user",
+                "constraint": "",
+                "description": ""
+            },
+            {
+                "name": "addRaspSensor",
+                "where": "on Backend",
+                "who": "any user",
+                "constraint": "",
+                "description": ""
+            },
+            {
+                "name": "addRaspModule",
+                "where": "on Backend",
+                "who": "any user",
+                "constraint": "",
+                "description": ""
+            },
+            {
+                "name": "addModuleSensor",
+                "where": "on Backend",
+                "who": "any user",
+                "constraint": "",
+                "description": ""
+            }
+        ]
+    }
+}

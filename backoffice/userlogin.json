@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "message": "Successfully created.",
+    "idUser": "6171876862635c2dfdbb46b6",
+    "token": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IisyMjE3NzYzNTk4OTMiLCJleHBpcmVzSW4iOjI1OTIwMDAsImNyZWF0ZWRBdCI6IjIwMjEtMTAtMjFUMTU6Mjk6NDQuMDUwWiIsImlhdCI6MTYzNDgzMDE4NH0.txClzh_xpwD8Nm-xsFaTIebWSlWXxKtIM8giuuRqLMI",
+        "expiresIn": 2592000,
+        "createdAt": "2021-10-21T15:29:44.050Z"
+    }
+}

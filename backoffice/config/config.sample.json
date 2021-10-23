@@ -1,0 +1,26 @@
+{
+  "local": {
+    "username": "genealogy",
+    "password": "",
+    "database": "genealogy",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "development": {
+    "username": "genealogy",
+    "password": "",
+    "database": "genealogy",
+    "host": "genealogy.ca0gpetnruab.us-east-1.rds.amazonaws.com",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "genealogy",
+    "password": "",
+    "database": "genealogy",
+    "host": "genealogy.ca0gpetnruab.us-east-1.rds.amazonaws.com",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}
