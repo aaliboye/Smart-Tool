@@ -1,6 +1,5 @@
 module.exports = {
     UserController: require('./user'),
-    BackOfficeUserController: require('./back-office-user'),
-    PersonController: require('./person'),
+    BackOfficeUserController: require('./back-office-user')
     
 };

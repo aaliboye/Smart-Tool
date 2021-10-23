@@ -1,7 +1,7 @@
 const multer = require('multer');
 
 const {
-  UserController, PersonController
+  UserController
 } = require('./../controller');
 
 const { auth } = require('./../middlewares');
@@ -28,7 +28,5 @@ module.exports = (app) => {
   app.get('/user/refresh_token', auth, UserController.refreshToken);
   app.post('/user/verify_code', auth_non_active, UserController.verifyCode);
   app.get('/user/init', UserController.seedUsers);
-
-  app.post('/person',auth, PersonController.create);
   
 };

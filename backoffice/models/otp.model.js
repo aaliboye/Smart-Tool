@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const otpSchema = new Schema({
     associatedPhoneNumber: {
         type: String,
-        required: true
+        required: true 
     },
     code: {
         type: String,
