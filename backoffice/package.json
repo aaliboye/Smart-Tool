@@ -1,23 +1,19 @@
 {
-  "name": "genealogysn",
+  "name": "smartgarden",
   "version": "1.0.0",
   "description": "",
   "apidoc": {
-    "name": "genealogysn",
+    "name": "smartgarden",
     "version": "1.0.0",
-    "description": "apiDoc genealogysn",
-    "title": "apiDoc genealogysn",
-    "url": "https://dk5sml6ak1pazrh09.daancovid19.sn"
+    "description": "apiDoc smartgarden",
+    "title": "apiDoc smartgarden",
+    "url": "https://smartgarden.herokuapp.com"
   },
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./bin/www",
     "doc": "apidoc -i controller/ -o public/apidoc/",
     "start": "npm run doc && node ./bin/www",
-    "deploy:production": "claudia update --set-env-from-json prodEnv.json NODE_ENV=production --version production",
-    "deploy:production:create": "claudia create  --set-env-from-json prodEnv.json NODE_ENV=production --version production --handler lambda.handler --deploy-proxy-api --region us-east-1",
-    "deploy": "pm2 restart index.js --name genealogysn",
-    "migrate:reset": "NODE_ENV=test npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "test": "jest --testTimeout=10000 --detectOpenHandles"
   },
   "author": "Ousmane Ndiaye",
