@@ -14,13 +14,10 @@ Pour tracer ....
 
 ### Developing
 
-1. Run `npm install` to install server dependencies.
-2. If You use local database:
-    2.0 create new file `/config/config.json` from `config/config.sample.json` (for dev instance ask credential to the team)
-    2.1 Run `sequelize db:migrate` 
+1. Run `npm install` to install server dependencies. 
 3. Run `npm run start:dev` to start the development server. It should automatically open the client in your browser when ready.
 
-3. Open browser `https://localhost:8000`.
+3. Open browser `https://localhost:4000`.
 
 
 

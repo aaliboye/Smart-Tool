@@ -29,33 +29,21 @@ const gardenSchema = new Schema(
         },
         raspberry: [
             {
-                id: String,
+
                 ip_address: String,
                 dns_address: String,
+                description: String,
                 sensor: [
                     {
-                        id: String,
                         type: String,
-                        input_pins: [
-                            { 
-                                number:String,
-                                type:String,
-                                param:[
+                        pins: [
+                            {
+                                number: String,
+                                type: String,
+                                param: [
                                     {
-                                        key:String,
-                                        value:String
-                                    }
-                                ]
-                            }
-                        ],
-                        output_pins: [
-                            { 
-                                number:String,
-                                type:String,
-                                param:[
-                                    {
-                                        key:String,
-                                        value:String
+                                        key: String,
+                                        value: String
                                     }
                                 ]
                             }
@@ -64,38 +52,35 @@ const gardenSchema = new Schema(
                 ],
                 modules: [
                     {
-                        id: String,
                         type: String,
-                        address: String,
+                        pins: [
+                            {
+                                number: String,
+                                type: String,
+                                param: [
+                                    {
+                                        key: String,
+                                        value: String
+                                    }
+                                ]
+                            }
+                        ],
                         sensor: [
                             {
-                                id: String,
                                 type: String,
-                                zone_id:{
+                                zone_id: {
                                     type: mongoose.Schema.Types.ObjectId,
                                     ref: "zone",
                                     index: true
                                 },
-                                input_pins: [
-                                    { 
-                                        number:String,
-                                        type:String,
-                                        param:[
+                                pins: [
+                                    {
+                                        number: String,
+                                        type: String,
+                                        param: [
                                             {
-                                                key:String,
-                                                value:String
-                                            }
-                                        ]
-                                    }
-                                ],
-                                output_pins: [
-                                    { 
-                                        number:String,
-                                        type:String,
-                                        param:[
-                                            {
-                                                key:String,
-                                                value:String
+                                                key: String,
+                                                value: String
                                             }
                                         ]
                                     }
@@ -106,6 +91,8 @@ const gardenSchema = new Schema(
                 ]
             }
         ],
+
+        zones: [{ type: Schema.Types.ObjectId, ref: 'garden' }]
 
     },
     {
@@ -126,7 +113,7 @@ function slugify(string) {
         .replace(/^-+/, '') // Trim - from start of text
         .replace(/-+$/, '') // Trim - from end of text
 }
-userSchema.pre('save', async function (next) {
+gardenSchema.pre('save', async function (next) {
     this.slug = slugify(this.name);
     next();
 });

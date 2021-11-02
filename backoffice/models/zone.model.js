@@ -27,7 +27,6 @@ const zoneSchema = new Schema({
         index: true
     },
     type: String,
-    area: mongoose.Decimal128
 },
 {
     timestamps: true

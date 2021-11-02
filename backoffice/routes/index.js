@@ -1,7 +1,7 @@
 const multer = require('multer');
 
 const {
-  UserController
+  UserController, GardenController, ZoneController
 } = require('./../controller');
 
 const { auth } = require('./../middlewares');
@@ -28,5 +28,21 @@ module.exports = (app) => {
   app.get('/user/refresh_token', auth, UserController.refreshToken);
   app.post('/user/verify_code', auth_non_active, UserController.verifyCode);
   app.get('/user/init', UserController.seedUsers);
+
+  //Gardens
+  app.post('/garden', GardenController.createGarden);
+  app.post('/garden/shape', GardenController.addShape);
+  app.post('/garden/central', GardenController.addCentral);
+  app.post('/garden/rasp', GardenController.addrpi);
+  app.post('/garden/rasp/sensor', GardenController.addrpisensor);
+  app.post('/garden/rasp/module', GardenController.addrpisubmodule);
+  app.post('/garden/rasp/module/sensor', GardenController.addrpisubmodulesensor);
+
+  //Zones into garden
+  app.post('/garden/zone', ZoneController.addZone);
+  app.post('/garden/zone/shape', ZoneController.addShape);
+  app.post('/garden/zone/central', ZoneController.addCentral);
+
+
   
 };
