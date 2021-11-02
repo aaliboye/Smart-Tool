@@ -37,11 +37,14 @@ module.exports = (app) => {
   app.post('/garden/rasp/sensor', GardenController.addrpisensor);
   app.post('/garden/rasp/module', GardenController.addrpisubmodule);
   app.post('/garden/rasp/module/sensor', GardenController.addrpisubmodulesensor);
-
+  app.get('/user', auth, GardenController.getGarden);
+  app.get('/user/refresh_token', auth, GardenController.getGardens);
   //Zones into garden
   app.post('/garden/zone', ZoneController.addZone);
   app.post('/garden/zone/shape', ZoneController.addShape);
   app.post('/garden/zone/central', ZoneController.addCentral);
+  app.get('/garden/zone', auth, ZoneController.getZone);
+  app.get('/garden/zones', auth, ZoneController.getZones);
 
 
   

@@ -64,7 +64,7 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/shape Define the geographic limite of garden
+     * @api {post} /garden/shape add a shape to garden
      * @apiHeader {String} authorization User unique token
      * @apiName AddShape
      * @apiGroup Garden
@@ -122,7 +122,7 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/central Define the geographic CENTER of garden
+     * @api {post} /garden/central Add center of garden
      * @apiHeader {String} authorization User unique token
      * @apiName AddCentral
      * @apiGroup Garden
@@ -177,7 +177,7 @@ module.exports = {
     },
 
     /**
-    * @api {post} /garden/rasp Add a central raspberry pi module
+    * @api {post} /garden/rasp Add a rasp pi module
     * @apiHeader {String} authorization User unique token
     * @apiName AddRpi
     * @apiGroup Garden
@@ -236,7 +236,7 @@ module.exports = {
 
 
     /**
-    * @api {post} /garden/rasp/sensor Add a sensor to raspberry pi module
+    * @api {post} /garden/rasp/sensor Add a sensor to a rasp pi
     * @apiHeader {String} authorization User unique token
     * @apiName addrpisensor
     * @apiGroup Garden
@@ -303,7 +303,7 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/rasp/module Add a submodule to raspberry pi module
+     * @api {post} /garden/rasp/module Add a submodule to rasp pi
      * @apiHeader {String} authorization User unique token
      * @apiName AddRpi
      * @apiGroup Garden
@@ -415,14 +415,20 @@ module.exports = {
 
 
     /**
-     * @api {GET} /gardens get all Garden belong to the connected User 
+     * @api {GET} /gardens get all Garden belong to  User 
      * @apiHeader {String} authorization User unique token
      * @apiName AddmoduleSensor
      * @apiGroup Garden
      * 
      *
-     *
-     * @apiSuccess (Success 201) {Boolean} success If it works ot not
+     * @apiSuccess (Success 200) {String} gardens[i]._id ID
+     * @apiSuccess (Success 200) {String} gardens[i].name name
+     * @apiSuccess (Success 200) {String} gardens[i].description description
+     * @apiSuccess (Success 200) {String} gardens[i].user_id user_id
+     * @apiSuccess (Success 200) {JSON} gardens[i].gps_shape gps_shape
+     * @apiSuccess (Success 200) {JSON} gardens[i].gps_central_point gps_central_point
+     * @apiSuccess (Success 200) {JSON} gardens[i].raspberry raspberry
+     * @apiSuccess (Success 200) {JSON} gardens[i].zones zones
      * @apiParamExample {json} Request-Example:
      *[{
      *   name: jardin Majorelle,
@@ -440,8 +446,8 @@ module.exports = {
         Garden.find({ user_id: req.userID }).
         populate({
           path: 'zone'
-        }).then(data => {
-            res.send(data);
+        }).then(gardens => {
+            res.send(gardens);
         }).catch(err => {
                 res.status(500).send({
                     message:
@@ -457,9 +463,16 @@ module.exports = {
      * @apiName AddmoduleSensor
      * @apiGroup Garden
      * 
-     ** @apiParam {Number} idgarden  ID of the garden
+     * @apiParam {Number} idgarden  ID of the garden
      *
-     * @apiSuccess (Success 201) {Boolean} success If it works ot not
+     * @apiSuccess (Success 200) {String} garden._id ID
+     * @apiSuccess (Success 200) {String} garden.name name
+     * @apiSuccess (Success 200) {String} garden.description description
+     * @apiSuccess (Success 200) {String} garden.user_id user_id
+     * @apiSuccess (Success 200) {JSON} garden.gps_shape gps_shape
+     * @apiSuccess (Success 200) {JSON} garden.gps_central_point gps_central_point
+     * @apiSuccess (Success 200) {JSON} garden.raspberry raspberry
+     * @apiSuccess (Success 200) {JSON} garden.zones zones
      * @apiParamExample {json} Request-Example:
      *[{
      *   name: jardin Majorelle,
@@ -477,8 +490,8 @@ module.exports = {
         Garden.findOne({ user_id: req.userID, _id:req.body.idgarden }).
         populate({
           path: 'zone'
-        }).then(data => {
-            res.send(data);
+        }).then(garden => {
+            res.send(garden);
         }).catch(err => {
                 res.status(500).send({
                     message:

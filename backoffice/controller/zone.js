@@ -14,7 +14,7 @@ module.exports = {
     * @api {post} /garden/zone Add a zone into the garden
     * @apiHeader {String} authorization User unique token
     * @apiName AddZone
-    * @apiGroup Garden
+    * @apiGroup Zone
     * 
     * @apiParam {Number} idgarden of the garden
     * @apiParam {String} name The Local IP adresse
@@ -133,10 +133,10 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/zone/central Define the geographic CENTER of garden
+     * @api {post} /garden/zone/central Define the geographic CENTER of Zone
      * @apiHeader {String} authorization User unique token
      * @apiName AddCentral
-     * @apiGroup Garden
+     * @apiGroup Zone
      * 
      * @apiParam {String} point in the format lat,lon
      * @apiParam {Number} idzone of the garden
@@ -193,7 +193,7 @@ module.exports = {
      * @api {GET} /garden/zones get all Zones belong to the connected User and agarden 
      * @apiHeader {String} authorization User unique token
      * @apiName AddmoduleSensor
-     * @apiGroup Garden
+     * @apiGroup Zone
      * 
      * @apiParam {Number} idgarden  ID of the garden
      *
@@ -210,7 +210,7 @@ module.exports = {
     }]
      *
      */
-    async getGardens(req, res) {
+    async getZones(req, res) {
 
         let idgarden = req.body.idgarden;
 
@@ -237,7 +237,7 @@ module.exports = {
      * @api {GET} /garden/zone get A Zone belongs to the connected User 
      * @apiHeader {String} authorization User unique token
      * @apiName AddmoduleSensor
-     * @apiGroup Garden
+     * @apiGroup Zone
      * 
      * @apiParam {Number} idgarden  ID of the garden
      * @apiParam {Number} idzone  ID of the zone
@@ -255,7 +255,7 @@ module.exports = {
     }]
      *
      */
-    async getGarden(req, res) {
+    async getZone(req, res) {
         let idgarden = req.body.idgarden;
         let idzone = req.body.idzone;
 
