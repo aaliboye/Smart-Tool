@@ -64,7 +64,7 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/shape add a shape to garden
+     * @api {post} /garden/shape add a GPS shape to garden
      * @apiHeader {String} authorization User unique token
      * @apiName AddShape
      * @apiGroup Garden
@@ -122,7 +122,7 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/central Add center of garden
+     * @api {post} /garden/central Add GPS center of garden
      * @apiHeader {String} authorization User unique token
      * @apiName AddCentral
      * @apiGroup Garden
@@ -303,9 +303,9 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/rasp/module Add a submodule to rasp pi
+     * @api {post} /garden/rasp/module Add a submodule to raspPi
      * @apiHeader {String} authorization User unique token
-     * @apiName AddRpi
+     * @apiName addrpisubmodule
      * @apiGroup Garden
      * 
      * @apiParam {Number} idgarden  ID of the garden
@@ -356,7 +356,7 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/rasp/module/sensor Add a sensor to a submodule
+     * @api {post} /garden/rasp/module/sensor Add a sensor submodule
      * @apiHeader {String} authorization User unique token
      * @apiName AddmoduleSensor
      * @apiGroup Garden
@@ -415,9 +415,9 @@ module.exports = {
 
 
     /**
-     * @api {GET} /gardens get all Garden belong to  User 
+     * @api {GET} /gardens get all User Garden
      * @apiHeader {String} authorization User unique token
-     * @apiName AddmoduleSensor
+     * @apiName getGardens
      * @apiGroup Garden
      * 
      *
@@ -458,9 +458,9 @@ module.exports = {
     },
 
     /**
-     * @api {GET} /gardens get A Garden belongs to the connected User 
+     * @api {GET} /gardens get A User Garden
      * @apiHeader {String} authorization User unique token
-     * @apiName AddmoduleSensor
+     * @apiName getGarden
      * @apiGroup Garden
      * 
      * @apiParam {Number} idgarden  ID of the garden
@@ -474,7 +474,7 @@ module.exports = {
      * @apiSuccess (Success 200) {JSON} garden.raspberry raspberry
      * @apiSuccess (Success 200) {JSON} garden.zones zones
      * @apiParamExample {json} Request-Example:
-     *[{
+     * [{
      *   name: jardin Majorelle,
      *   description: Ce jardin se trouve au Maroc,
      *   user_id: 111aaa-111,
@@ -482,7 +482,7 @@ module.exports = {
      *   gps_central_point: {},
      *   raspberry: [],
      *   zones: []
-    }]
+     * }]
      *
      */
     getGarden(req, res) {

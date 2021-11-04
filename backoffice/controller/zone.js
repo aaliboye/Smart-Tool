@@ -75,7 +75,7 @@ module.exports = {
 
 
     /**
-     * @api {post} /garden/zone/shape Define the geographic limite of the zone
+     * @api {post} /garden/zone/shape Add GPS Polygone
      * @apiHeader {String} authorization User unique token
      * @apiName AddShape
      * @apiGroup Zone
@@ -133,7 +133,7 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/zone/central Define the geographic CENTER of Zone
+     * @api {post} /garden/zone/central Add GPS center
      * @apiHeader {String} authorization User unique token
      * @apiName AddCentral
      * @apiGroup Zone
@@ -190,16 +190,21 @@ module.exports = {
 
 
     /**
-     * @api {GET} /garden/zones get all Zones belong to the connected User and agarden 
+     * @api {GET} /garden/zones get all Zones from garden 
      * @apiHeader {String} authorization User unique token
      * @apiName AddmoduleSensor
      * @apiGroup Zone
      * 
      * @apiParam {Number} idgarden  ID of the garden
      *
-     * @apiSuccess (Success 201) {Boolean} success If it works ot not
+     * @apiSuccess (Success 200) {String} zones[i]._id ID
+     * @apiSuccess (Success 200) {String} zones[i].name name
+     * @apiSuccess (Success 200) {String} zones[i].description description
+     * @apiSuccess (Success 200) {String} zones[i].garden_id garden_id
+     * @apiSuccess (Success 200) {JSON}   zones[i].gps_shape gps_shape
+     * @apiSuccess (Success 200) {JSON}   zones[i].gps_central_point gps_central_point
      * @apiParamExample {json} Request-Example:
-     *[{
+     * [{
      *   name: jardin Majorelle,
      *   description: Ce jardin se trouve au Maroc,
      *   user_id: 111aaa-111,
@@ -207,20 +212,20 @@ module.exports = {
      *   gps_central_point: {},
      *   raspberry: [],
      *   zones: []
-    }]
+     * }]
      *
      */
     async getZones(req, res) {
 
-        let idgarden = req.body.idgarden;
+        let idgarden = req.params.idgarden;
 
         const garden = await Garden.findById(idgarden);
         if (garden && garden.user_id==req.userID) {
             Zone.find({ garden_id: req.body.idgarden }).
             populate({
                 path: 'garden'
-            }).then(data => {
-                res.send(data);
+            }).then(zones => {
+                res.send(zones);
             }).catch(err => {
                 res.status(500).send({
                     message:
@@ -236,13 +241,18 @@ module.exports = {
     /**
      * @api {GET} /garden/zone get A Zone belongs to the connected User 
      * @apiHeader {String} authorization User unique token
-     * @apiName AddmoduleSensor
+     * @apiName getZone
      * @apiGroup Zone
      * 
      * @apiParam {Number} idgarden  ID of the garden
      * @apiParam {Number} idzone  ID of the zone
      *
-     * @apiSuccess (Success 201) {Boolean} success If it works ot not
+     * @apiSuccess (Success 200) {String} zone._id ID
+     * @apiSuccess (Success 200) {String} zone.name name
+     * @apiSuccess (Success 200) {String} zone.description description
+     * @apiSuccess (Success 200) {String} zone.garden_id garden_id
+     * @apiSuccess (Success 200) {JSON} zone.gps_shape gps_shape
+     * @apiSuccess (Success 200) {JSON} zone.gps_central_point gps_central_point
      * @apiParamExample {json} Request-Example:
      *[{
      *   name: jardin Majorelle,
@@ -256,24 +266,15 @@ module.exports = {
      *
      */
     async getZone(req, res) {
-        let idgarden = req.body.idgarden;
-        let idzone = req.body.idzone;
+        //let idgarden = req.body.idgarden;
+        let idzone = req.params.idzone;
 
-        const garden = await Garden.findById(idgarden);
-        if (garden && garden.user_id==req.userID) {
-            Zone.findOne({ _id:idzone, garden_id: req.body.idgarden }).
-            populate({
-                path: 'garden'
-            }).then(data => {
-                res.send(data);
-            }).catch(err => {
-                res.status(500).send({
-                    message:
-                        err.message || "Some error occurred while retrieving users."
-                });
-            });
+        const zone = await Zone.findById(idzone).populate({path: 'garden'});
+
+        if (zone && zone.garden_id.user_id==req.userID) {
+            res.send(zone);
         }else {
-            res.status(401).send({ success: false, message: 'garden not found' });
+            res.status(401).send({ success: false, message: 'zone not found' });
         }
            
 

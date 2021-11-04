@@ -43,8 +43,8 @@ module.exports = (app) => {
   app.post('/garden/zone', ZoneController.addZone);
   app.post('/garden/zone/shape', ZoneController.addShape);
   app.post('/garden/zone/central', ZoneController.addCentral);
-  app.get('/garden/zone', auth, ZoneController.getZone);
-  app.get('/garden/zones', auth, ZoneController.getZones);
+  app.get('/garden/zone/:idzone', auth, ZoneController.getZone);
+  app.get('/garden/zones/:idgarden', auth, ZoneController.getZones);
 
 
   
