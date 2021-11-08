@@ -1,13 +1,13 @@
 {
-  "name": "smartgardens",
+  "name": "smartlocations",
   "version": "1.0.0",
   "description": "",
   "apidoc": {
-    "name": "smartgardens",
+    "name": "smartlocations",
     "version": "1.0.0",
-    "description": "apiDoc smartgardens",
-    "title": "apiDoc smartgardens",
-    "url": "https://smartgardens.herokuapp.com"
+    "description": "apiDoc smartlocations",
+    "title": "apiDoc smartlocations",
+    "url": "https://smartlocations.herokuapp.com"
   },
   "main": "index.js",
   "scripts": {

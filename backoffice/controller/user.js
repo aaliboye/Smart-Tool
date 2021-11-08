@@ -65,7 +65,7 @@ module.exports = {
                         success: true,
                         message: 'Successfully created.',
                         idUser: user._id,
-                        token,
+                        token:token,
                     });
                 }).catch((error) => res.status(400).send(error));
                 return;

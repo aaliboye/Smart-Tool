@@ -1,29 +1,29 @@
 let User = require("../models/user.model");
-let Garden = require("../models/garden.model");
-let Zone = require("../models/zone.model");
+let Location = require("../models/location.model");
+let SubLocation = require("../models/sublocation.model");
 
 
 /**
  * @author Ousmane NDIAYE.
- * @module Zone management
+ * @module SubLocation management
  */
 
 module.exports = {
 
     /**
-    * @api {post} /garden/zone Add a zone into the garden
+    * @api {post} /location/subLocation Add a subLocation into the location
     * @apiHeader {String} authorization User unique token
-    * @apiName AddZone
-    * @apiGroup Zone
+    * @apiName AddSubLocation
+    * @apiGroup SubLocation
     * 
-    * @apiParam {Number} idgarden of the garden
+    * @apiParam {Number} idlocation of the location
     * @apiParam {String} name The Local IP adresse
-    * @apiParam {String} type The type off the Zone
+    * @apiParam {String} type The type off the SubLocation
     * @apiParam {String} description A description of the Raspi
     *
     *
     * @apiSuccess (Success 201) {Boolean} success If it works ot not
-    * @apiSuccess (Success 201) {Object} Zone a Zone object
+    * @apiSuccess (Success 201) {Object} SubLocation a SubLocation object
     *
     * @apiSuccessExample Success-Response:
     *     HTTP/1.1 201 Created
@@ -32,27 +32,27 @@ module.exports = {
     *       "message": "Successfully updated."
     *     }
     */
-     async addZone(req, res) {
+     async addSubLocation(req, res) {
         try {
-            const newZone = new Zone({
+            const newSubLocation = new SubLocation({
                 name: req.body.name,
                 description: req.body.description,
-                garden_id: req.body.idgarden,
+                location_id: req.body.idlocation,
                 type: req.body.type,
             });
 
-            let idgarden = req.body.idgarden;
-            const garden = await Garden.findById(idgarden);
+            let idlocation = req.body.idlocation;
+            const location = await Location.findById(idlocation);
 
-            newZone.save(function (error, doc) {
+            newSubLocation.save(function (error, doc) {
                 if (error) {
                     console.log(error);
                     res.status(500).send(error);
                 }
                 else {
-                    garden.zones.push(doc._id);
-                    const filter = { _id: garden._id };
-                    Garden.findOneAndUpdate(filter, garden);
+                    location.subLocations.push(doc._id);
+                    const filter = { _id: location._id };
+                    Location.findOneAndUpdate(filter, location);
                     res.status(201).send({
                         id: doc._id,
                         success: true,
@@ -75,17 +75,17 @@ module.exports = {
 
 
     /**
-     * @api {post} /garden/zone/shape Add GPS Polygone
+     * @api {post} /location/subLocation/shape Add GPS Polygone
      * @apiHeader {String} authorization User unique token
      * @apiName AddShape
-     * @apiGroup Zone
+     * @apiGroup SubLocation
      * 
      * @apiParam {String} polygon in the format lat,lon;lat,lon;lat,lon;lat,lon
-     * @apiParam {Number} idzone id of the zone
+     * @apiParam {Number} idsubLocation id of the subLocation
      *
      *
      * @apiSuccess (Success 201) {Boolean} success If it works ot not
-     * @apiSuccess (Success 201) {Object} Zone a Zone object
+     * @apiSuccess (Success 201) {Object} SubLocation a SubLocation object
      *
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 201 Created
@@ -95,21 +95,21 @@ module.exports = {
      *     }
      */
      async addShape(req, res) {
-        let idzone = req.body.idzone;
-        const zone = await Zone.findById(idzone);
-        if (zone) {
+        let idsubLocation = req.body.idsubLocation;
+        const subLocation = await SubLocation.findById(idsubLocation);
+        if (subLocation) {
             //lat,lon;lat,lon;lat,lon;lat,lon
             const spolygone = req.body.polygon + '';
 
             spolygone.split(";").map(function (latlon) {
-                zone.gps_shape.push({
+                subLocation.gps_shape.push({
                     latitude: latlon.split(",")[0],
                     longitude: latlon.split(",")[1],
                 });
             });
-            const filter = { _id: zone._id };
+            const filter = { _id: subLocation._id };
 
-            Zone.findOneAndUpdate(filter, zone, function (error, doc) {
+            SubLocation.findOneAndUpdate(filter, subLocation, function (error, doc) {
                 if (error) {
                     console.log(error);
                     res.status(500).send(error);
@@ -124,7 +124,7 @@ module.exports = {
             });
         }
         else {
-            res.status(401).send({ success: false, message: 'Garden not found' });
+            res.status(401).send({ success: false, message: 'Location not found' });
         }
 
 
@@ -133,17 +133,17 @@ module.exports = {
     },
 
     /**
-     * @api {post} /garden/zone/central Add GPS center
+     * @api {post} /location/subLocation/central Add GPS center
      * @apiHeader {String} authorization User unique token
      * @apiName AddCentral
-     * @apiGroup Zone
+     * @apiGroup SubLocation
      * 
      * @apiParam {String} point in the format lat,lon
-     * @apiParam {Number} idzone of the garden
+     * @apiParam {Number} idsubLocation of the location
      *
      *
      * @apiSuccess (Success 201) {Boolean} success If it works ot not
-     * @apiSuccess (Success 201) {Object} Zone a Zone object
+     * @apiSuccess (Success 201) {Object} SubLocation a SubLocation object
      *
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 201 Created
@@ -153,18 +153,18 @@ module.exports = {
      *     }
      */
      async addCentral(req, res) {
-        let idzone = req.body.idzone;
-        const zone = await Zone.findById(idzone);
-        if (zone) {
+        let idsubLocation = req.body.idsubLocation;
+        const subLocation = await SubLocation.findById(idsubLocation);
+        if (subLocation) {
             //lat,lon;lat,lon;lat,lon;lat,lon
             const gpspoint = req.body.point + ''.split(",");
-            zone.gps_central_point = {
+            subLocation.gps_central_point = {
                 latitude: gpspoint[0],
                 longitude: gpspoint[1],
             };
-            const filter = { _id: zone._id };
+            const filter = { _id: subLocation._id };
 
-            Zone.findOneAndUpdate(filter, zone, function (error, doc) {
+            SubLocation.findOneAndUpdate(filter, subLocation, function (error, doc) {
                 if (error) {
                     console.log(error);
                     res.status(500).send(error);
@@ -179,7 +179,7 @@ module.exports = {
             });
         }
         else {
-            res.status(401).send({ success: false, message: 'Garden not found' });
+            res.status(401).send({ success: false, message: 'Location not found' });
         }
 
 
@@ -190,19 +190,19 @@ module.exports = {
 
 
     /**
-     * @api {GET} /garden/zones get all Zones from garden 
+     * @api {GET} /location/subLocations get all SubLocations from location 
      * @apiHeader {String} authorization User unique token
      * @apiName AddmoduleSensor
-     * @apiGroup Zone
+     * @apiGroup SubLocation
      * 
-     * @apiParam {Number} idgarden  ID of the garden
+     * @apiParam {Number} idlocation  ID of the location
      *
-     * @apiSuccess (Success 200) {String} zones[i]._id ID
-     * @apiSuccess (Success 200) {String} zones[i].name name
-     * @apiSuccess (Success 200) {String} zones[i].description description
-     * @apiSuccess (Success 200) {String} zones[i].garden_id garden_id
-     * @apiSuccess (Success 200) {JSON}   zones[i].gps_shape gps_shape
-     * @apiSuccess (Success 200) {JSON}   zones[i].gps_central_point gps_central_point
+     * @apiSuccess (Success 200) {String} subLocations[i]._id ID
+     * @apiSuccess (Success 200) {String} subLocations[i].name name
+     * @apiSuccess (Success 200) {String} subLocations[i].description description
+     * @apiSuccess (Success 200) {String} subLocations[i].location_id location_id
+     * @apiSuccess (Success 200) {JSON}   subLocations[i].gps_shape gps_shape
+     * @apiSuccess (Success 200) {JSON}   subLocations[i].gps_central_point gps_central_point
      * @apiParamExample {json} Request-Example:
      * [{
      *   name: jardin Majorelle,
@@ -211,21 +211,21 @@ module.exports = {
      *   gps_shape: [],
      *   gps_central_point: {},
      *   raspberry: [],
-     *   zones: []
+     *   subLocations: []
      * }]
      *
      */
-    async getZones(req, res) {
+    async getSubLocations(req, res) {
 
-        let idgarden = req.params.idgarden;
+        let idlocation = req.params.idlocation;
 
-        const garden = await Garden.findById(idgarden);
-        if (garden && garden.user_id==req.userID) {
-            Zone.find({ garden_id: req.body.idgarden }).
+        const location = await Location.findById(idlocation);
+        if (location && location.user_id==req.userID) {
+            SubLocation.find({ location_id: req.body.idlocation }).
             populate({
-                path: 'garden'
-            }).then(zones => {
-                res.send(zones);
+                path: 'location'
+            }).then(subLocations => {
+                res.send(subLocations);
             }).catch(err => {
                 res.status(500).send({
                     message:
@@ -233,26 +233,26 @@ module.exports = {
                 });
             });
         }else {
-            res.status(401).send({ success: false, message: 'garden not found' });
+            res.status(401).send({ success: false, message: 'location not found' });
         }
 
     },
 
     /**
-     * @api {GET} /garden/zone get A Zone belongs to the connected User 
+     * @api {GET} /location/subLocation get A SubLocation belongs to the connected User 
      * @apiHeader {String} authorization User unique token
-     * @apiName getZone
-     * @apiGroup Zone
+     * @apiName getSubLocation
+     * @apiGroup SubLocation
      * 
-     * @apiParam {Number} idgarden  ID of the garden
-     * @apiParam {Number} idzone  ID of the zone
+     * @apiParam {Number} idlocation  ID of the location
+     * @apiParam {Number} idsubLocation  ID of the subLocation
      *
-     * @apiSuccess (Success 200) {String} zone._id ID
-     * @apiSuccess (Success 200) {String} zone.name name
-     * @apiSuccess (Success 200) {String} zone.description description
-     * @apiSuccess (Success 200) {String} zone.garden_id garden_id
-     * @apiSuccess (Success 200) {JSON} zone.gps_shape gps_shape
-     * @apiSuccess (Success 200) {JSON} zone.gps_central_point gps_central_point
+     * @apiSuccess (Success 200) {String} subLocation._id ID
+     * @apiSuccess (Success 200) {String} subLocation.name name
+     * @apiSuccess (Success 200) {String} subLocation.description description
+     * @apiSuccess (Success 200) {String} subLocation.location_id location_id
+     * @apiSuccess (Success 200) {JSON} subLocation.gps_shape gps_shape
+     * @apiSuccess (Success 200) {JSON} subLocation.gps_central_point gps_central_point
      * @apiParamExample {json} Request-Example:
      *[{
      *   name: jardin Majorelle,
@@ -261,20 +261,20 @@ module.exports = {
      *   gps_shape: [],
      *   gps_central_point: {},
      *   raspberry: [],
-     *   zones: []
+     *   subLocations: []
     }]
      *
      */
-    async getZone(req, res) {
-        //let idgarden = req.body.idgarden;
-        let idzone = req.params.idzone;
+    async getSubLocation(req, res) {
+        //let idlocation = req.body.idlocation;
+        let idsubLocation = req.params.idsubLocation;
 
-        const zone = await Zone.findById(idzone).populate({path: 'garden'});
+        const subLocation = await SubLocation.findById(idsubLocation).populate({path: 'location'});
 
-        if (zone && zone.garden_id.user_id==req.userID) {
-            res.send(zone);
+        if (subLocation && subLocation.location_id.user_id==req.userID) {
+            res.send(subLocation);
         }else {
-            res.status(401).send({ success: false, message: 'zone not found' });
+            res.status(401).send({ success: false, message: 'subLocation not found' });
         }
            
 

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const zoneSchema = new Schema({
+const subLocationSchema = new Schema({
     slug: { type: String, index: true },
     name: {
         type: String,
@@ -21,9 +21,9 @@ const zoneSchema = new Schema({
         longitude: Number,
         altitude: Number
     },
-    garden_id: {
+    location_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "garden",
+        ref: "location",
         index: true
     },
     type: String,
@@ -32,6 +32,6 @@ const zoneSchema = new Schema({
     timestamps: true
 });
 
-const Zone = mongoose.model("zone", zoneSchema);
+const Sublocation = mongoose.model("sublocation", subLocationSchema);
 
-module.exports = Zone;
+module.exports = Sublocation;

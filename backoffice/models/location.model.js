@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const gardenSchema = new Schema(
+const locationSchema = new Schema(
     {
         slug: { type: String, index: true },
         name: {
@@ -29,7 +29,7 @@ const gardenSchema = new Schema(
         },
         raspberry: [
             {
-
+                
                 ip_address: String,
                 dns_address: String,
                 description: String,
@@ -55,7 +55,7 @@ const gardenSchema = new Schema(
                         type: String,
                         pins: [
                             {
-                                number: String,
+                                adress: String,
                                 type: String,
                                 param: [
                                     {
@@ -92,7 +92,7 @@ const gardenSchema = new Schema(
             }
         ],
 
-        zones: [{ type: Schema.Types.ObjectId, ref: 'garden' }]
+        zones: [{ type: Schema.Types.ObjectId, ref: 'location' }]
 
     },
     {
@@ -113,10 +113,10 @@ function slugify(string) {
         .replace(/^-+/, '') // Trim - from start of text
         .replace(/-+$/, '') // Trim - from end of text
 }
-gardenSchema.pre('save', async function (next) {
+locationSchema.pre('save', async function (next) {
     this.slug = slugify(this.name);
     next();
 });
-const Garden = mongoose.model("garden", gardenSchema);
+const Location = mongoose.model("location", locationSchema);
 
-module.exports = Garden;
+module.exports = Location;

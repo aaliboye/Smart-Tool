@@ -1,7 +1,7 @@
 const multer = require('multer');
 
 const {
-  UserController, GardenController, ZoneController
+  UserController, LocationController, SublocationController
 } = require('./../controller');
 
 const { auth } = require('./../middlewares');
@@ -29,22 +29,23 @@ module.exports = (app) => {
   app.post('/user/verify_code', auth_non_active, UserController.verifyCode);
   app.get('/user/init', UserController.seedUsers);
 
-  //Gardens
-  app.post('/garden', GardenController.createGarden);
-  app.post('/garden/shape', GardenController.addShape);
-  app.post('/garden/central', GardenController.addCentral);
-  app.post('/garden/rasp', GardenController.addrpi);
-  app.post('/garden/rasp/sensor', GardenController.addrpisensor);
-  app.post('/garden/rasp/module', GardenController.addrpisubmodule);
-  app.post('/garden/rasp/module/sensor', GardenController.addrpisubmodulesensor);
-  app.get('/user', auth, GardenController.getGarden);
-  app.get('/user/refresh_token', auth, GardenController.getGardens);
-  //Zones into garden
-  app.post('/garden/zone', ZoneController.addZone);
-  app.post('/garden/zone/shape', ZoneController.addShape);
-  app.post('/garden/zone/central', ZoneController.addCentral);
-  app.get('/garden/zone/:idzone', auth, ZoneController.getZone);
-  app.get('/garden/zones/:idgarden', auth, ZoneController.getZones);
+  //Locations
+  app.post('/location', LocationController.createLocation);
+  app.post('/location/shape', LocationController.addShape);
+  app.post('/location/central', LocationController.addCentral);
+  app.post('/location/rasp', LocationController.addrpi);
+  app.post('/location/rasp/sensor', LocationController.addrpisensor);
+  app.post('/location/rasp/module', LocationController.addrpisubmodule);
+  app.post('/location/rasp/module/sensor', LocationController.addrpisubmodulesensor);
+  
+  app.get('/location/:idlocation', auth, LocationController.getLocation);
+  app.get('/locations', auth, LocationController.getLocations);
+  //Sublocations into location
+  app.post('/location/location', SublocationController.addSubLocation);
+  app.post('/location/location/shape', SublocationController.addShape);
+  app.post('/location/location/central', SublocationController.addCentral);
+  app.get('/location/location/:idlocation', auth, SublocationController.getSubLocation);
+  app.get('/location/locations/:idlocation', auth, SublocationController.getSubLocations);
 
 
   
